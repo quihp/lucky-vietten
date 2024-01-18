@@ -45,7 +45,7 @@ function App() {
     setIsOpen(false);
   };
   return (
-    <div className="">
+    <div >
       <div className="flex">
         {/* Section list quizes*/}
         <div className="w-3/12">Section list quizes</div>
