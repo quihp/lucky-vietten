@@ -1,14 +1,15 @@
 import React from "react";
 import CustomButton from "./CustomButton";
 
-function Prizes() {
+function Prizes(props) {
+  const { changePrizeType } = props
   return (
     <div className="flex flex-col">
-      <CustomButton id="4" name="Giải đặc biệt" />
-      <CustomButton id="1" name="Giải nhất" />
-      <CustomButton id="2" name="Giải nhì" />
-      <CustomButton id="3" name="Giải ba" />
-      <CustomButton id="4" name="Giải khuyến khích" />
+      <CustomButton changePrizeType={changePrizeType} id={0} name="Giải đặc biệt" />
+      <CustomButton changePrizeType={changePrizeType} id={1} name="Giải nhất" />
+      <CustomButton changePrizeType={changePrizeType} id={2} name="Giải nhì" />
+      <CustomButton changePrizeType={changePrizeType} id={3} name="Giải ba" />
+      <CustomButton changePrizeType={changePrizeType} id={4} name="Giải khuyến khích" />
     </div>
   );
 }

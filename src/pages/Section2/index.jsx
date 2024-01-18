@@ -1,9 +1,18 @@
 import { useState } from "react";
 import RandomRoller from "./../../components/RandomRoller";
 import CustomDialog from "./../../components/CustomDialog";
-
+function renderNamePrize (prizeType) {
+  switch(prizeType) {
+    case 0: return "Giải đặc biệt"
+    case 1: return "Giải nhất"
+    case 2: return "Giải nhì"
+    case 3: return "Giải ba"
+    default:
+    case 4: return "Giải khuyến khích"
+  }
+}
 function Section2(props) {
-  const { prizeType } = props 
+  const { prizeType, handleDone } = props 
   const [isOpen, setIsOpen] = useState(false);
   const [value, setValue] = useState({});
   const [list, setList] = useState(JSON.parse(localStorage.getItem('list')));
@@ -16,6 +25,7 @@ function Section2(props) {
     let prevList = JSON.parse(localStorage.getItem(prizeType)) || [];
     prevList.push(objWinner)
     localStorage.setItem(prizeType, JSON.stringify(prevList))
+    handleDone()
   };
 
   const handleClose = () => {
@@ -32,6 +42,7 @@ function Section2(props) {
           list={list.map(e => e.id)}
           handleValue={(val) => handleValue(val, prizeType)}
         />
+        {renderNamePrize(prizeType)}
       </div>
 
       <CustomDialog isOpen={isOpen} value={value} handleClose={handleClose} />

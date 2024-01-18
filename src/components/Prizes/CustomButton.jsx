@@ -3,16 +3,17 @@ import { useState } from "react";
 import CustomDialogPrize from "./CustomDialogPrize";
 
 const CustomButton = (props) => {
-  const { id, name } = props;
+  const { id, name, changePrizeType } = props;
   const [state, setState] = useState({
     open: false,
     value: undefined,
   });
-  const handleOnClick = () => {
+  const handleOnClick = (prizeType) => {
     setState({
       open: true,
       value: getValue(),
     });
+    changePrizeType(prizeType)
   };
   const handleClose = () => {
     setState({ ...state, open: false });
@@ -35,7 +36,7 @@ const CustomButton = (props) => {
       <button
         key={id}
         className="bg-white text-red-500 my-4 w-[300px] h-[50px] transition hover:scale-125 ease-in-out duration-300"
-        onClick={handleOnClick}
+        onClick={() => handleOnClick(id)}
       >
         {name}
       </button>
