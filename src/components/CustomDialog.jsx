@@ -7,7 +7,7 @@ import DialogContentText from '@mui/material/DialogContentText';
 import DialogTitle from '@mui/material/DialogTitle';
 
 function CustomDialog(props) {
-  const { isOpen, handleClose } = props;
+  const { isOpen, value, handleClose } = props;
 
   return (
     <React.Fragment>
@@ -18,16 +18,15 @@ function CustomDialog(props) {
         aria-describedby="alert-dialog-description"
       >
         <DialogTitle id="alert-dialog-title">
-          {"Use Google's location service?"}
+          {"Chúc mừng"}
         </DialogTitle>
         <DialogContent>
           <DialogContentText id="alert-dialog-description">
-            Let Google help apps determine location. This means sending
-            anonymous location data to Google, even when no apps are running.
+            {value}
           </DialogContentText>
         </DialogContent>
         <DialogActions>
-          <Button onClick={handleClose}>Disagree</Button>
+          <Button onClick={handleClose}>Đóng</Button>
         </DialogActions>
       </Dialog>
     </React.Fragment>

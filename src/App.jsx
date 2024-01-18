@@ -5,16 +5,19 @@ import RandomRoller from "./components/RandomRoller";
 import CustomDialog from "./components/CustomDialog";
 function App() {
   const [isOpen, setIsOpen] = useState(false);
+  const [value, setValue] = useState("");
 
   const handleValue = (val) => {
-    setIsOpen(true)
-  }
+    setIsOpen(true);
+    setValue(val);
+  };
 
   const handleClose = () => {
-    setIsOpen(false)
-  }
+    setIsOpen(false);
+  };
   return (
     <>
+      <h1 className="text-3xl font-bold underline">Hello world!</h1>
       <RandomRoller
         message="Click to Pick"
         duration="2000"
@@ -48,7 +51,7 @@ function App() {
         ]}
         handleValue={(val) => handleValue(val)}
       />
-      <CustomDialog isOpen={isOpen} handleClose={handleClose}/>
+      <CustomDialog isOpen={isOpen} value={value} handleClose={handleClose} />
     </>
   );
 }
