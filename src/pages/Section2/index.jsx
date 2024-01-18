@@ -2,16 +2,20 @@ import { useState } from "react";
 import RandomRoller from "./../../components/RandomRoller";
 import CustomDialog from "./../../components/CustomDialog";
 
-function Section2() {
+function Section2(props) {
+  const { prizeType } = props 
   const [isOpen, setIsOpen] = useState(false);
   const [value, setValue] = useState({});
-  const prizeType = 1; // 0: ĐB 1: 1st ; 2: 2nd; 3: 3rd. 4: KK
   const [list, setList] = useState(JSON.parse(localStorage.getItem('list')));
 
   const handleValue = (val,prizeType) => {
     setIsOpen(true);
     setList(list.filter((e) => e.id !== val.id));
-    setValue(list.find((e) => e.id === val));
+    const objWinner = list.find((e) => e.id === val)
+    setValue(objWinner);
+    let prevList = JSON.parse(localStorage.getItem(prizeType)) || [];
+    prevList.push(objWinner)
+    localStorage.setItem(prizeType, JSON.stringify(prevList))
   };
 
   const handleClose = () => {
