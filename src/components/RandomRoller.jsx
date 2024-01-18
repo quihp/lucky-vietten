@@ -1,12 +1,12 @@
 import { useState } from "react";
 
 function RandomRoller(props) {
-  const { message, handleValue } = props;
+  const { message, prizeType, handleValue } = props;
   const [data, setData] = useState({
     item: message || "Click to Pick",
     interval: null,
   });
-  const pickItem = () => {
+  const pickItem = (prizeType) => {
     const { list = [] } = props;
 
     let startTime;
@@ -42,9 +42,8 @@ function RandomRoller(props) {
           spin(timestamp, duration);
         });
       } else {
-        handleValue(selectedValue)
+        handleValue(selectedValue, prizeType)
       }
-
       
     };
 
@@ -54,7 +53,7 @@ function RandomRoller(props) {
     });
   };
   
-  return <div onClick={pickItem}>{data.item}</div>
+  return <div onClick={() => pickItem(prizeType)}>{data.item}</div>
 }
 
 export default RandomRoller;

@@ -1,5 +1,3 @@
-import { useState, Fragment } from "react";
-
 import "./App.css";
 import RandomRoller from "./components/RandomRoller";
 import CustomDialog from "./components/CustomDialog";
@@ -45,6 +43,11 @@ function App() {
   const handleClose = () => {
     setIsOpen(false);
   };
+import Section2 from "./pages/Section2";
+import { list } from "./data/list";
+localStorage.setItem("list", JSON.stringify(list));
+
+function App() {
   return (
     <div>
       <div className="flex">
@@ -62,13 +65,11 @@ function App() {
             list={list}
             handleValue={(val) => handleValue(val)}
           />
+          <Section2 />
         </div>
         {/* Section winners*/}
         <div className="w-3/12">Section winners</div>
       </div>
-      {/* Section Wheel */}
-
-      <CustomDialog isOpen={isOpen} value={value} handleClose={handleClose} />
     </div>
   );
 }
