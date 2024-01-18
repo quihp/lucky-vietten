@@ -1,7 +1,6 @@
 /* eslint-disable react/prop-types */
-import { Button } from "@mui/material";
-import React, { useState } from "react";
-import CustomDialog from "../CustomDialog";
+import { useState } from "react";
+import CustomDialogPrize from "./CustomDialogPrize";
 
 const CustomButton = (props) => {
   const { id, name } = props;
@@ -40,7 +39,7 @@ const CustomButton = (props) => {
       >
         {name}
       </button>
-      <CustomDialog
+      <CustomDialogPrize
         isOpen={state.open}
         value={state.value}
         handleClose={handleClose}

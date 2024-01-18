@@ -7,7 +7,7 @@ import DialogContent from "@mui/material/DialogContent";
 import DialogContentText from "@mui/material/DialogContentText";
 import DialogTitle from "@mui/material/DialogTitle";
 
-function CustomDialog(props) {
+function CustomDialogPrize(props) {
   const { isOpen, value, handleClose } = props;
 
   return (
@@ -21,7 +21,7 @@ function CustomDialog(props) {
         <DialogTitle id="alert-dialog-title">{"Chúc mừng"}</DialogTitle>
         <DialogContent>
           <DialogContentText id="alert-dialog-description">
-            {value.id} - {value.Name} {value.Type === "SVTT" && "Thực tập sinh"}
+            {value}
           </DialogContentText>
         </DialogContent>
         <DialogActions>
@@ -32,4 +32,4 @@ function CustomDialog(props) {
   );
 }
 
-export default CustomDialog;
+export default CustomDialogPrize;
